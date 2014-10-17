@@ -23,7 +23,7 @@
     <string name="screen_checklist">Checklist</string>
     <string name="screen_rc">Radio</string>
     <string name="screen_parameters">Parameters</string>
-    
+
     <!-- App Settings/Preferences -->
     <string name="pref_connection_type">Telemetry Connection Type</string>
     <string name="pref_connection_type_summary">Which link to use to connect to the drone</string>
@@ -347,7 +347,7 @@
     <string name="mission_control_takeoff">Takeoff</string>
     <string name="mission_control_pause">Pause</string>
     <string name="mission_control_auto">Auto</string>
-    <string name="mission_control_follow">Follow</string>    
+    <string name="mission_control_follow">Follow</string>
     <string name="mission_control_dronie">Dronie</string>
     <string name="telemetry_label">Telemetry</string>
     <string name="flight_modes_label">Flight modes</string>
@@ -455,7 +455,7 @@
     <string name="normal_waypoint_toggle">Normal</string>
     <string name="spline_waypoint_toggle">Spline</string>
     <string name="mavlink_version">Mavlink Version</string>
-    <string name="firmware_version">Firmware Version</string>    
+    <string name="firmware_version">Firmware Version</string>
     <string name="empty_content">--</string>
     <string name="usage_statistics">Usage Statistics</string>
     <string name="pref_usage_statistics_title">Send usage statistics</string>
@@ -487,5 +487,7 @@
     <string name="menu_action_delete">Delete</string>
     <string name="menu_action_reverse">Reverse</string>
     <string name="menu_action_multi_edit">Multi-Edit</string>
+    <string name="dialog_confrim_auto_mission_title">Starting an auto mission!</string>
+    <string name="dialog_confirm_auto_mission_msg">Are you sure you want to send the drone on an auto mission?</string>
 
 </resources>

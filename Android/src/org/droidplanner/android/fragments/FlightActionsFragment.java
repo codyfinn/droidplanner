@@ -96,7 +96,7 @@ public class FlightActionsFragment extends Fragment implements OnClickListener, 
 
 	autoBtn = (Button) view.findViewById(R.id.mc_autoBtn);
 	autoBtn.setOnClickListener(this);
-		
+
 	final Button takeoffInAuto = (Button) view.findViewById(R.id.mc_TakeoffInAutoBtn);
 	takeoffInAuto.setOnClickListener(this);
 
@@ -170,7 +170,7 @@ public class FlightActionsFragment extends Fragment implements OnClickListener, 
 	    drone.getState().changeFlightMode(ApmModes.ROTOR_AUTO);
 	    eventBuilder.setAction("Changed flight mode").setLabel(ApmModes.ROTOR_AUTO.getName());
 	    break;
-			
+
 	case R.id.mc_TakeoffInAutoBtn:
 	    drone.getState().doTakeoff(new Altitude(TAKEOFF_ALTITUDE));
 	    drone.getState().changeFlightMode(ApmModes.ROTOR_AUTO);
@@ -184,7 +184,7 @@ public class FlightActionsFragment extends Fragment implements OnClickListener, 
 	    case FOLLOW_START:
 		eventLabel = "FollowMe enabled";
 		break;
-				
+
 	    case FOLLOW_RUNNING:
 		eventLabel = "FollowMe running";
 		break;
@@ -241,6 +241,20 @@ public class FlightActionsFragment extends Fragment implements OnClickListener, 
 						      });
 
 	ynd.show(getChildFragmentManager(), "Confirm arming");
+    }
+
+    private void getAutoMissionConfirmation() {
+      YesNoDialog ynd = YesNoDialog.newInstance(getString(R.string.dialog_confrim_auto_mission_title), getString(R.string.dialog_confirm_auto_mission_msg), new YesNoDialog.Listener(){
+        @Override
+        public void onYes(){
+          drone.getState().changeFlightMode(ApmModes.ROTOR_AUTO);
+          }
+        @Override
+        public void onNo(){
+          drone.getState().changeFlightMode(ApmModes.ROTOR_LAND);
+        }
+      });
+      ynd.show(getChildFragmentManager(), "Confirm auto takeoff");
     }
 
     @Override
