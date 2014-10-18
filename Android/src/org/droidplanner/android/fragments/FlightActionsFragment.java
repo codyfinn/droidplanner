@@ -149,6 +149,7 @@ public class FlightActionsFragment extends Fragment implements OnClickListener, 
 	case R.id.mc_takeoff:
 	    drone.getState().doTakeoff(new Altitude(TAKEOFF_ALTITUDE));
 	    eventBuilder.setAction("Changed flight mode").setLabel("Takeoff");
+	    getMissionConfirmation();
 	    break;
 
 	case R.id.mc_homeBtn:
