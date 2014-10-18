@@ -483,9 +483,10 @@
     <string name="menu_search_toggle">Toggle Search</string>
     <string name="dialog_confirm_arming_title">Arm propellers?</string>
     <string name="dialog_confirm_arming_msg">Warning! Propellers will spin and drone may begin to fly.</string>
+    <string name="dialog_confirm_mission_title">Starting a mission?</string>
+    <string name="dialog_confirm_mission_msg">Do you want to start this mission, press No to land</string>
     <string name="radius_label">Radius</string>
     <string name="menu_action_delete">Delete</string>
     <string name="menu_action_reverse">Reverse</string>
     <string name="menu_action_multi_edit">Multi-Edit</string>
-
 </resources>
