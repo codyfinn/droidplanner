@@ -151,12 +151,8 @@ public class FlightActionsFragment extends Fragment implements OnClickListener, 
 	    drone.getState().doTakeoff(new Altitude(TAKEOFF_ALTITUDE));
 	    eventBuilder.setAction("Changed flight mode").setLabel("Takeoff");
 	    sendRC();
-        Toast.makeText(getActivity(), "Wait for drone to reach altitude...", Toast.LENGTH_SHORT).show();
-        for(double currentAlt = drone.getAltitude().getAltitude(); currentAlt < TAKEOFF_ALTITUDE;){
-        }
-        Toast.makeText(getActivity(), "The drone has reached the take off altitude!", Toast.LENGTH_SHORT).show();
-        getAutoMissionConfirmation();
-	break;
+	    Toast.makeText(getActivity(), "Wait for drone to reach altitude...", Toast.LENGTH_SHORT).show();	    
+	    break;
 
 	case R.id.mc_homeBtn:
 	    drone.getState().changeFlightMode(ApmModes.ROTOR_RTL);
@@ -172,13 +168,7 @@ public class FlightActionsFragment extends Fragment implements OnClickListener, 
 	    break;
 
 	case R.id.mc_autoBtn:
-      getAutoMissionConfirmation();
-      drone.getState().changeFlightMode(ApmModes.ROTOR_AUTO);
-      eventBuilder.setAction("Changed flight mode").setLabel(ApmModes.ROTOR_AUTO.getName());
-	    break;
-
-	case R.id.mc_TakeoffInAutoBtn:
-	    drone.getState().doTakeoff(new Altitude(TAKEOFF_ALTITUDE));
+	    getAutoMissionConfirmation();
 	    drone.getState().changeFlightMode(ApmModes.ROTOR_AUTO);
 	    eventBuilder.setAction("Changed flight mode").setLabel(ApmModes.ROTOR_AUTO.getName());
 	    break;
@@ -250,17 +240,17 @@ public class FlightActionsFragment extends Fragment implements OnClickListener, 
     }
 
     private void getAutoMissionConfirmation() {
-      YesNoDialog ynd = YesNoDialog.newInstance(getString(R.string.dialog_confrim_auto_mission_title), getString(R.string.dialog_confirm_auto_mission_msg), new YesNoDialog.Listener(){
-        @Override
-        public void onYes(){
-          drone.getState().changeFlightMode(ApmModes.ROTOR_AUTO);
-          }
-        @Override
-        public void onNo(){
-          drone.getState().changeFlightMode(ApmModes.ROTOR_LAND);
-        }
-      });
-      ynd.show(getChildFragmentManager(), "Confirm auto takeoff");
+	YesNoDialog ynd = YesNoDialog.newInstance(getString(R.string.dialog_confrim_auto_mission_title), getString(R.string.dialog_confirm_auto_mission_msg), new YesNoDialog.Listener(){
+		@Override
+		public void onYes(){
+		    drone.getState().changeFlightMode(ApmModes.ROTOR_AUTO);
+		}
+		@Override
+		public void onNo(){
+		    drone.getState().changeFlightMode(ApmModes.ROTOR_LAND);
+		}
+	    });
+	ynd.show(getChildFragmentManager(), "Confirm auto takeoff");
     }
 
     @Override
